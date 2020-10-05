@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3425BCE7-2E11-4F06-BD82-0A07303B2884}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeVortoJobQueueProcessingApi</RootNamespace>
+    <AssemblyName>CodeVortoJobQueueProcessingApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=7.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.BulkInsert, Version=6.0.2.8, Culture=neutral, PublicKeyToken=630a17433349cb76, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.BulkInsert-ef6.6.0.2.8\lib\Net45\EntityFramework.BulkInsert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.MappingAPI, Version=6.1.0.9, Culture=neutral, PublicKeyToken=7ee2e825d201459e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.1.0.9\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.8.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.8.0\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO, Version=3.9.1.0, Culture=neutral, PublicKeyToken=5ad3ea2f85776344, processorArchitecture=MSIL">
+      <HintPath>..\packages\LumenWorksCsvReader.3.9.1\lib\net20\LumenWorks.Framework.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MindFusion.Common, Version=1.3.0.21402, Culture=neutral, PublicKeyToken=7fed53ada5b92263, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming, Version=6.3.1.25762, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.EffectsProvider, Version=6.3.1.25764, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.EffectsProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Dxf, Version=6.3.1.25766, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Export.Dxf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Pdf, Version=6.3.1.25766, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Export.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Svg, Version=6.3.1.25766, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Export.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Swf, Version=6.3.1.25765, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Export.Swf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Visio, Version=6.3.1.25767, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Export.Visio.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Export.Wmf, Version=6.3.1.25765, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Export.Wmf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Draw, Version=6.3.1.25766, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Import.Draw.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Svg, Version=6.3.1.25767, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Import.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.Import.Visio, Version=6.3.1.25767, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.Import.Visio.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.WebForms, Version=5.4.0.24737, Culture=neutral, PublicKeyToken=2cd594ad00507826, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Diagramming.WebForms.Design, Version=5.4.1.21685, Culture=neutral, PublicKeyToken=2cd594ad00507826, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Diagramming.WebForms.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Extenders, Version=5.4.0.24739, Culture=neutral, PublicKeyToken=2cd594ad00507826, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Extenders.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Graphs, Version=2.3.1.35487, Culture=neutral, PublicKeyToken=0d09f0b4914ade28, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Mapping, Version=1.0.0.22309, Culture=neutral, PublicKeyToken=89414cf5e3aab3ea, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Mapping.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Pdf, Version=1.3.0.17137, Culture=neutral, PublicKeyToken=193ac5531bee7b09, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Scripting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73f9512fb02f1209, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="MindFusion.Swf, Version=1.0.1.21470, Culture=neutral, PublicKeyToken=a0d18338041985ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MindFusion.Swf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.5\MySql.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.SelfHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.SelfHost.5.2.3\lib\net45\System.Web.Http.SelfHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionFilters\ActionExceptionFilter.cs" />
+    <Compile Include="ActionFilters\LogActionFilter.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CodeVortoAddOn\AsyncTaskCancellationAddOn.cs" />
+    <Compile Include="CodeVortoServices\CodeVortoService.cs" />
+    <Compile Include="CodeVortoServices\GeneralBase.cs" />
+    <Compile Include="CodeVortoServices\GeneralRepository.cs" />
+    <Compile Include="CodeVortoServices\ICodeVortoService.cs" />
+    <Compile Include="ControllerHelperClasses\CobolProcessingFinalVersionHelper.cs" />
+    <Compile Include="ControllerHelperClasses\StatementReferenceMasterHelper.cs" />
+    <Compile Include="ControllerHelperClasses\UniverseProcessingHelper.cs" />
+    <Compile Include="ControllerHelperClasses\VbaProcessingHelper.cs" />
+    <Compile Include="Controllers\ActionWorkflowsReferenceController.cs" />
+    <Compile Include="Controllers\BaseCommandReferenceController.cs" />
+    <Compile Include="Controllers\CobolBatchProcessingController.cs" />
+    <Compile Include="Controllers\CobolProcessingTestingController.cs" />
+    <Compile Include="Controllers\CobolProcessingVersionBatchController.cs" />
+    <Compile Include="Controllers\CobolProcessingVersionBatchWorkflowController.cs" />
+    <Compile Include="Controllers\FileMasterController.cs" />
+    <Compile Include="Controllers\FileObjectMethodReferenceController.cs" />
+    <Compile Include="Controllers\FileObjectReferenceController.cs" />
+    <Compile Include="Controllers\FileTypeExtensionReferenceController.cs" />
+    <Compile Include="Controllers\FileTypeReferenceController.cs" />
+    <Compile Include="Controllers\GeneralController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartialCobolProcessingVersionBatchController.cs" />
+    <Compile Include="Controllers\PartialUniverseBasicController.cs" />
+    <Compile Include="Controllers\PartialUniverseBasicFinalVersionController.cs" />
+    <Compile Include="Controllers\PartialUniverseBasicVersion2Controller.cs" />
+    <Compile Include="Controllers\PartialVbaProcessingVersion1Controller.cs" />
+    <Compile Include="Controllers\PrimaryLanguageReferenceController.cs" />
+    <Compile Include="Controllers\ProcessIncludesController.cs" />
+    <Compile Include="Controllers\ProjectMasterController.cs" />
+    <Compile Include="Controllers\StatementReferenceController.cs" />
+    <Compile Include="Controllers\PostProcessController.cs" />
+    <Compile Include="Controllers\StatementRuleController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TestResultController.cs" />
+    <Compile Include="Controllers\UniverseBasicController.cs" />
+    <Compile Include="Controllers\UniverseBasicFinalVersionController.cs" />
+    <Compile Include="Controllers\UniverseBasicMsAccessVbaController.cs" />
+    <Compile Include="Controllers\UniverseBasicVersion1Controller.cs" />
+    <Compile Include="Controllers\UniverseBasicVersion2Controller.cs" />
+    <Compile Include="Controllers\UniverseBasicVersion3Controller.cs" />
+    <Compile Include="Controllers\UniverseBasicWorkflowController.cs" />
+    <Compile Include="Controllers\UniverseProcessingController.cs" />
+    <Compile Include="Controllers\UniverseTestController.cs" />
+    <Compile Include="Controllers\UserMasterController.cs" />
+    <Compile Include="Controllers\VbaProcessingVersion1Controller.cs" />
+    <Compile Include="Controllers\VisualBasicProcessingController.cs" />
+    <Compile Include="Controllers\WorkflowReferencesController.cs" />
+    <Compile Include="Controllers\WorkflowTreeviewSecondTabDetailsController.cs" />
+    <Compile Include="Controllers\WorkspaceWorkflowController.cs" />
+    <Compile Include="Formatters\BrowserJsonFormatter.cs" />
+    <Compile Include="Formatters\DictionaryAsArrayResolver.cs" />
+    <Compile Include="Handlers\CorsHandler.cs" />
+    <Compile Include="Handlers\NullValueHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{15fa18b4-0165-4d73-b349-b8fc2df9d9ca}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{aa77141e-e1df-4609-9b64-f2bb3d6e9597}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53246</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53246/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
